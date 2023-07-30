@@ -1,22 +1,30 @@
-﻿// LESSON 5
+﻿// LESSON 6
 
-namespace UserInput
+namespace ArithOp
 {
     class Program
     {
         static void Main(string[] args)
         {
+            int friends = 10;
+            // friends = friends + 1;
+            // friends += 2;
+            // friends++;
 
-            Console.WriteLine("What is your name ?");
+            // friends = friends - 1;
+            // friends -= 2;
+            // friends--;
 
-            string? name = Console.ReadLine();
+            // friends = friends * 2;
+            // friends *= 2;
 
-            Console.WriteLine("What is your age ?");
-            int age = Convert.ToInt32(Console.ReadLine());
+            friends = friends / 2;
+            friends /= 2;
 
-            Console.WriteLine("Hello " + name);
-            Console.WriteLine($"You are {age} year old");
+            int remainder = friends % 3;
 
+            Console.WriteLine(remainder);
+            Console.WriteLine(friends);
 
             Console.ReadKey();
         }
