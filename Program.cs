@@ -1,31 +1,38 @@
-﻿// LESSON 8
-using System;
+﻿// LESSON 9
 
-namespace RandomNum
+namespace StringMethod
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Generating Random Number
-            Random random = new Random();
-            // .Next() returns a random integer number btw
-            // Btw 0 - >2billion
+            // String Methods
+            String fullName = "Bro Fahm";
+            // String phoneNumber = "+234-703-657-3306";
 
-            // int num = random.Next();
+            // UPPERCASE
+            // Console.WriteLine(fullName.ToUpper());
+            // // lowercase
+            // Console.WriteLine(fullName.ToLower());
 
-            // Passing 2values in it limit its value
+            // // Replace
+            // phoneNumber = phoneNumber.Replace("-", "");
+            // Console.WriteLine(phoneNumber);
 
-            // Random 3 number from 3 die;
-            int die1 = random.Next(1, 7);
-            int die2 = random.Next(1, 7);
-            int die3 = random.Next(1, 7);
+            //Insert
+            String userName = fullName.Insert(0, "@");
+            Console.WriteLine(userName);
 
-            // .NextDouble() returns a random number >= 0,  <1
-            double num2 = random.NextDouble();
+            // Length, this is not a method but a property
+            Console.WriteLine(fullName.Length);
 
-            Console.WriteLine(die1); ;
-            Console.WriteLine(num2 * 100);
+            // SubString (start, length)
+            String firstName = fullName.Substring(4, 4);
+            String lastName = fullName.Substring(0, 3);
+
+            Console.WriteLine(firstName);
+            Console.WriteLine(lastName);
+
             Console.ReadKey();
         }
     }
