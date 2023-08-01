@@ -1,40 +1,43 @@
-﻿// LESSON 10
+﻿// LESSON 11
 
-namespace IfStatement
+namespace Switches
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter your age:");
-            int age = Convert.ToInt32(Console.ReadLine());
+            // Switch Statement is an efficient alternative to ifelse statement
+            Console.WriteLine("What day of the week is it today?");
+            String? day = Console.ReadLine()?.ToLower();
 
-            if (age > 100)
+            switch (day)
             {
-                Console.WriteLine("You are too old for this site!");
-            }
-            else if (age >= 18)
-            {
-                Console.WriteLine("You can Sign up");
-            }
-            else
-            {
-                Console.WriteLine("You can not Sign up!");
-            }
+                case "sunday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "monday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "tuesday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "wednesday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "thursday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "friday":
+                    Console.WriteLine("Today is " + day);
+                    break;
+                case "saturday":
+                    Console.WriteLine("Today is " + day);
+                    break;
 
-            Console.WriteLine("Please enter your name:");
-            String? name = Console.ReadLine();
-
-            if (name != "")
-            {
-                Console.WriteLine("Welcome " + name + ",");
-
+                default:
+                    Console.WriteLine(day + " is not a day of the week");
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Please provide a name");
-            }
-
             Console.ReadKey();
         }
     }
