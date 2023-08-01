@@ -1,37 +1,39 @@
-﻿// LESSON 9
+﻿// LESSON 10
 
-namespace StringMethod
+namespace IfStatement
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // String Methods
-            String fullName = "Bro Fahm";
-            // String phoneNumber = "+234-703-657-3306";
+            Console.WriteLine("Please enter your age:");
+            int age = Convert.ToInt32(Console.ReadLine());
 
-            // UPPERCASE
-            // Console.WriteLine(fullName.ToUpper());
-            // // lowercase
-            // Console.WriteLine(fullName.ToLower());
+            if (age > 100)
+            {
+                Console.WriteLine("You are too old for this site!");
+            }
+            else if (age >= 18)
+            {
+                Console.WriteLine("You can Sign up");
+            }
+            else
+            {
+                Console.WriteLine("You can not Sign up!");
+            }
 
-            // // Replace
-            // phoneNumber = phoneNumber.Replace("-", "");
-            // Console.WriteLine(phoneNumber);
+            Console.WriteLine("Please enter your name:");
+            String? name = Console.ReadLine();
 
-            //Insert
-            String userName = fullName.Insert(0, "@");
-            Console.WriteLine(userName);
+            if (name != "")
+            {
+                Console.WriteLine("Welcome " + name + ",");
 
-            // Length, this is not a method but a property
-            Console.WriteLine(fullName.Length);
-
-            // SubString (start, length)
-            String firstName = fullName.Substring(4, 4);
-            String lastName = fullName.Substring(0, 3);
-
-            Console.WriteLine(firstName);
-            Console.WriteLine(lastName);
+            }
+            else
+            {
+                Console.WriteLine("Please provide a name");
+            }
 
             Console.ReadKey();
         }
