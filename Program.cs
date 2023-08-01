@@ -1,4 +1,9 @@
-﻿// LESSON 3
+﻿// See https://aka.ms/new-console-template for more information
+// dotnet new console -o app
+// dutnet run
+// dotnet build
+
+// LESSON 03
 
 namespace Constant
 {
@@ -6,17 +11,10 @@ namespace Constant
     {
         static void Main(string[] args)
         {
-            /* To make a variable constant through out
-            it's lifecycle add the 'const' keyword b4
-            the declaration of a variable */
 
-            const double pi = 3.1423;
-            // Now reassigning it would no longer work
-            // pi = 22;
-
-
-            Console.WriteLine(pi);
-            Console.ReadKey();
+            Console.WriteLine("Hello Dunya!"); // output on the console
+            Console.Beep(); // makes console beep
+            Console.ReadKey(); // press a key to exit the console
         }
     }
 }
