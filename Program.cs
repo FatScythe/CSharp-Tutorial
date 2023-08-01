@@ -36,8 +36,9 @@ namespace Output
             // Single and double quote
             Console.WriteLine("\"Hello\" \'Dunya\'");
 
-            // Vertical Tab and Horizontal Tab
+            // Vertical Tab 
             Console.WriteLine("Hello \v You");
+            // Horizontal Tab
             Console.WriteLine("Hello \t You");
 
             Console.Beep();
