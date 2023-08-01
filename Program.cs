@@ -1,4 +1,5 @@
-﻿namespace Variables
+﻿// LESSON 02
+namespace Variables
 {
     class Program
     {
