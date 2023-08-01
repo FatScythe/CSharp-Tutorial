@@ -38,6 +38,7 @@ namespace Switches
                     Console.WriteLine(day + " is not a day of the week");
                     break;
             }
+
             Console.ReadKey();
         }
     }
