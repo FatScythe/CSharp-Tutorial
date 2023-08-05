@@ -1,23 +1,31 @@
-﻿// LESSON 14
+﻿// LESSON 15
 
-namespace ForLoop
+namespace NestedLoops
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // ForLoop - repeats as code for a finite amount of time
-            for (int i = 1; i <= 10; i += 2)
-            {
-                Console.WriteLine(i);
-            }
+            // Generate a rectangle
+            Console.WriteLine("How many row(s)? ");
 
-            for (int i = 10; i > 0; i--)
-            {
-                Console.WriteLine(i);
-            }
+            int rows = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Happy New Year!!!");
+            Console.WriteLine("How many column(s)? ");
+            int cols = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("What symbol would you like to use ? ");
+
+
+            string? symbol = Console.ReadLine();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(symbol);
+                }
+                Console.WriteLine();
+            }
 
             Console.ReadKey();
         }
