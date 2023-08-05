@@ -1,22 +1,13 @@
-﻿// LESSON 13
+﻿// LESSON 14
 
-namespace WhileLoop
+namespace ForLoop
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // While Loop - repeats a code while a condition remains true
+            // ForLoop - repeats as code for a finite amount of time
 
-            string? name = "";
-
-            while (name == "")
-            {
-                Console.WriteLine("What is your name ?");
-                name = Console.ReadLine();
-            }
-
-            Console.WriteLine("Hi " + name);
 
             Console.ReadKey();
         }
