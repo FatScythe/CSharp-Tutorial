@@ -1,42 +1,26 @@
-﻿// LESSON 11
+﻿// LESSON 12
 
-namespace Switches
+namespace LogicalOps
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Switch Statement is an efficient alternative to ifelse statement
-            Console.WriteLine("What day of the week is it today?");
-            String? day = Console.ReadLine()?.ToLower();
+            // Logical Operators can be used to check if more than one operation is true or false
 
-            switch (day)
+            // && (AND)
+            // || (OR)
+
+            Console.WriteLine("What's the temperature outside: (C)");
+            double temp = Convert.ToDouble(Console.ReadLine());
+
+            if (temp >= 10 && temp <= 25)
             {
-                case "sunday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "monday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "tuesday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "wednesday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "thursday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "friday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-                case "saturday":
-                    Console.WriteLine("Today is " + day);
-                    break;
-
-                default:
-                    Console.WriteLine(day + " is not a day of the week");
-                    break;
+                Console.WriteLine("It's warm outside!");
+            }
+            else if (temp <= -50 || temp >= 50)
+            {
+                Console.WriteLine("DO NOT GO OUTSIDE!!!");
             }
 
             Console.ReadKey();
