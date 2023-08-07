@@ -1,21 +1,41 @@
-﻿// LESSON 17
+﻿// LESSON 18
 
-namespace ForEach
+namespace Methods
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // foreach loop- It is a simpler way to iterate over an array, but it's is less flexible
+            // method - performs a section of code whenever it's called "invoked",
+            //          benefits - Reuse codes without rewriting it
+            string name = "Scythe";
+            int age = 99;
 
-            string[] cars = new string[4] { "Benz", "Lexus", "Bugatti", "Ferari" };
-
-            foreach (string car in cars)
-            {
-                Console.WriteLine(car);
-            }
-
+            SingHappyBirthday(name, age);
+            SingHappyBirthday(name, age);
+            SingHappyBirthday(name, age);
             Console.ReadKey();
+        }
+        static void SingHappyBirthday(string name, int age)
+        {
+            Console.WriteLine("Happy Birthday to you");
+            Console.WriteLine("Happy Birthday to you");
+            Console.WriteLine("Happy Birthday dear " + name);
+
+            Console.WriteLine("Happy Birthday");
+            Console.WriteLine("Happy Birthday");
+
+            Console.WriteLine("Happy Birthday to you");
+
+            Console.WriteLine("How old are you now?");
+            Console.WriteLine("How old are you now?");
+
+            Console.WriteLine("How old are you?, Dear " + name);
+            Console.WriteLine("I am " + age + " years old");
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+
         }
     }
 
