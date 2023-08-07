@@ -1,37 +1,19 @@
-﻿// LESSON 16
+﻿// LESSON 17
 
-namespace Arrays
+namespace ForEach
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Arrays - are variables that can store multiple values, there have fixed length
+            // foreach loop- It is a simpler way to iterate over an array, but it's is less flexible
 
-            // Method 1
-            //  As no length, might cause an error when accesing an element that doesnot exist
-            // string[] cars = { "Benz", "Audi", "Lexus" };
+            string[] cars = new string[4] { "Benz", "Lexus", "Bugatti", "Ferari" };
 
-            //Method 2
-            // As Length, No errors
-            // string[] cars = new string[4];
-
-            // cars[0] = "Benz";
-            // cars[1] = "Audi";
-            // cars[2] = "Lexus";
-
-            // Method 3
-            //  As no length, might cause an error when accesing an element that doesnot exist
-            // Exception error - Index out of range
-            string[] cars = new string[] { "Benz", "Audi", "Lexus" };
-
-            Console.WriteLine(cars[3]);
-
-            for (int i = 0; i < cars.Length; i++)
+            foreach (string car in cars)
             {
-                Console.WriteLine(cars[i]);
+                Console.WriteLine(car);
             }
-
 
             Console.ReadKey();
         }
