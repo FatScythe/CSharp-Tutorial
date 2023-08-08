@@ -1,32 +1,56 @@
-﻿// LESSON 21
+﻿// LESSON 22
 
-namespace Params
+namespace Exception
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Params Keyword = a method parameter that takes a variable number
-            //                  of arguments
-            //                  The parameters type must be a single - dimensional array  
+            // Exception - erro that occur during execution
 
-            double Total = CheckoutTotal(15.34, 1.00, 6.00, 24.00, 89, 15.50);
+            // try - try some code that is considered dangerous
+            // catch - catches and handles exception when they occur
+            // finally - always executes regardless if exception occurs or not
 
-            Console.WriteLine("Total amount of cart items: " + "$" + Total);
+            int x;
+            int y;
+            int result;
 
-            Console.ReadKey();
-        }
-
-        static double CheckoutTotal(params double[] prices)
-        {
-            double total = 0;
-
-            foreach (double price in prices)
+            try
             {
-                total += price;
+                Console.WriteLine("Enter a first Number: ");
+                x = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter a 2nd Number: ");
+                y = Convert.ToInt32(Console.ReadLine());
+
+                result = x / y;
+
+                Console.WriteLine("The result is:" + result);
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Only Numbers PLEASE!!!");
+            }
+            catch (DivideByZeroException)
+            {
+                // This exception only works with integer values
+                Console.WriteLine("You cannot divide by ZERO!");
+            }
+            catch (System.Exception)
+            {
+                // Should not be used, except only after defining other 
+                // anticipated exceptions
+                Console.WriteLine("Something went wrong");
+            }
+            finally
+            {
+                Console.WriteLine("Written by Scythe");
             }
 
-            return total;
+
+            Console.ReadKey();
         }
     }
 
