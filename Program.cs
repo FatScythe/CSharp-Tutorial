@@ -25,7 +25,6 @@ namespace Exception
                 y = Convert.ToInt32(Console.ReadLine());
 
                 result = x / y;
-
                 Console.WriteLine("The result is:" + result);
 
             }
