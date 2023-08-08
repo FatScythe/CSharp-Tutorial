@@ -1,30 +1,32 @@
-﻿// LESSON 20
+﻿// LESSON 21
 
-namespace MethodOverloading
+namespace Params
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Method Overloading = methods can have the same name 
-            //                      but only differs with their parameters
-            //                      name + parameters = signature
-            //                      methods with same name must have a unique signature 
-            double total;
+            // Params Keyword = a method parameter that takes a variable number
+            //                  of arguments
+            //                  The parameters type must be a single - dimensional array  
 
-            // total = Multiply(2,3);
-            total = Multiply(2, 3, 5);
+            double Total = CheckoutTotal(15.34, 1.00, 6.00, 24.00, 89, 15.50);
+
+            Console.WriteLine("Total amount of cart items: " + "$" + Total);
 
             Console.ReadKey();
         }
-        static double Multiply(double x, double y)
-        {
-            return x * y;
-        }
 
-        static double Multiply(double x, double y, double z)
+        static double CheckoutTotal(params double[] prices)
         {
-            return x * y * z;
+            double total = 0;
+
+            foreach (double price in prices)
+            {
+                total += price;
+            }
+
+            return total;
         }
     }
 
