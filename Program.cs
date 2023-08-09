@@ -1,53 +1,20 @@
 ﻿// LESSON 22
 
-namespace Exception
+namespace Conditionaloperators
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Exception - erro that occur during execution
+            // A shorter way to write an if/else statement
+            // (condition) ? x : y;
 
-            // try - try some code that is considered dangerous
-            // catch - catches and handles exception when they occur
-            // finally - always executes regardless if exception occurs or not
+            double temp = 25;
+            string messsage;
 
-            int x;
-            int y;
-            int result;
+            messsage = temp > 25 ? "It's warm outside" : "It's cold outside";
 
-            try
-            {
-                Console.WriteLine("Enter a first Number: ");
-                x = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine("Enter a 2nd Number: ");
-                y = Convert.ToInt32(Console.ReadLine());
-
-                result = x / y;
-                Console.WriteLine("The result is:" + result);
-
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Only Numbers PLEASE!!!");
-            }
-            catch (DivideByZeroException)
-            {
-                // This exception only works with integer values
-                Console.WriteLine("You cannot divide by ZERO!");
-            }
-            catch (System.Exception)
-            {
-                // Should not be used, except only after defining other 
-                // anticipated exceptions
-                Console.WriteLine("Something went wrong");
-            }
-            finally
-            {
-                Console.WriteLine("Written by Scythe");
-            }
-
+            Console.WriteLine(messsage);
 
             Console.ReadKey();
         }
