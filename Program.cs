@@ -1,26 +1,41 @@
-﻿// LESSON 24
+﻿// LESSON 25
 
-namespace StringInterpolation
+namespace MultiDimensionalArray
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // String Interpolation - offer a means to write string with variable
-            // It works by preceding a string with '$' 
-            // and when inputting a variable, place it in a `{}`- curly-bracket as opposed to the usual adding
+            string[,] ParkingLot = {
+                    { "Tesla", "Honda", "Benz" } ,
+                    { "Hyundai", "Ford", "Mitsubishi" },
+                    { "Ferrari", "Lexus", "Toyota" }
+                };
 
-            string firstName = "Scythe";
-            string lastName = "Death";
-            int age = 23;
+            // Query : ParkingLot[row, col];
+            // Console.WriteLine(ParkingLot[0, 1]); // Honda
 
-            // The curly braces can accept a second value(number), 
-            // it specifies the amount of space before(+ve) and after(-ve) the variable
+            // Reassign 
+            ParkingLot[1, 0] = "Bugatti";
+            // Console.WriteLine(ParkingLot[1, 0]); // Bugatti
 
-            Console.WriteLine($"Your full name is {lastName} {firstName}");
-            Console.WriteLine($"You are{age,3} years old");
+            /* foreach (string car in ParkingLot)
+            {
+                Console.WriteLine(car);
+            } */
+            // ParkingLot.GetLength(0); // x-axis or row in 2d
+            // ParkingLot.GetLength(1); // y-axis or col in 2d
 
+            for (int i = 0; i < ParkingLot.GetLength(0); i++)
+            {
+                for (int j = 0; j < ParkingLot.GetLength(1); j++)
+                {
+                    Console.Write(ParkingLot[i, j] + " | ");
+                }
+                Console.WriteLine();
+            }
 
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
