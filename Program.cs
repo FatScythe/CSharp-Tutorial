@@ -1,43 +1,55 @@
-﻿// LESSON 25
+﻿// LESSON 26
 
-namespace MultiDimensionalArray
+namespace Classes
 {
+    //     // Classes - are a bunch of related codes
+    //     // Can be used as a blueprint for OOP
     class Program
     {
         static void Main(string[] args)
         {
-            string[,] ParkingLot = {
-                    { "Tesla", "Honda", "Benz" } ,
-                    { "Hyundai", "Ford", "Mitsubishi" },
-                    { "Ferrari", "Lexus", "Toyota" }
-                };
 
-            // Query : ParkingLot[row, col];
-            // Console.WriteLine(ParkingLot[0, 1]); // Honda
 
-            // Reassign 
-            ParkingLot[1, 0] = "Bugatti";
-            // Console.WriteLine(ParkingLot[1, 0]); // Bugatti
+            Messages.Hello();
+            Messages.Waiting();
+            Messages.Bye();
 
-            /* foreach (string car in ParkingLot)
-            {
-                Console.WriteLine(car);
-            } */
-            // ParkingLot.GetLength(0); // x-axis or row in 2d
-            // ParkingLot.GetLength(1); // y-axis or col in 2d
-
-            for (int i = 0; i < ParkingLot.GetLength(0); i++)
-            {
-                for (int j = 0; j < ParkingLot.GetLength(1); j++)
-                {
-                    Console.Write(ParkingLot[i, j] + " | ");
-                }
-                Console.WriteLine();
-            }
-
-            Console.WriteLine();
             Console.ReadKey();
         }
     }
+
+    // class Messages
+    // {
+    //     // The static keyword ties the method to the class without it, 
+    //     // one would need to create an object to access them
+
+    //     static void Main(string[] args)
+    //     {
+
+
+    //         Messages.Hello();
+    //         Messages.Waiting();
+    //         Messages.Bye();
+
+    //         Console.ReadKey();
+    //     }
+
+    //     static void Hello()
+    //     {
+    //         Console.WriteLine("Hello, How are you ?");
+    //     }
+
+
+    //     static void Waiting()
+    //     {
+    //         Console.WriteLine("I am waiting for something...");
+    //     }
+
+
+    //     static void Bye()
+    //     {
+    //         Console.WriteLine("Good Bye, Thank You For Visiting!");
+    //     }
+    // }
 
 }
