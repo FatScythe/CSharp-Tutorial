@@ -1,55 +1,51 @@
-﻿// LESSON 26
+﻿// LESSON 27
 
-namespace Classes
+namespace Objects
 {
-    //     // Classes - are a bunch of related codes
-    //     // Can be used as a blueprint for OOP
     class Program
     {
         static void Main(string[] args)
         {
+            // Object = An instance of a class
+            //          A class can be used as a blueprint for creating OOP
+            //          Objects can have field and methods i.e characteristics and actions
 
 
-            Messages.Hello();
-            Messages.Waiting();
-            Messages.Bye();
+            Human human1 = new Human();
+            human1.name = "Furqan";
+            human1.age = 17;
+
+            human1.Eating();
+            human1.sleeping();
+
+            Human human2 = new Human();
+            human2.name = "Fahm";
+            human2.age = 23;
+
+
+            human2.Eating();
+            human2.sleeping();
 
             Console.ReadKey();
         }
     }
 
-    // class Messages
-    // {
-    //     // The static keyword ties the method to the class without it, 
-    //     // one would need to create an object to access them
+    class Human
+    {
+        // Fields
+        public string? name;
+        public int age;
 
-    //     static void Main(string[] args)
-    //     {
+        // Actions or methods
+        public void Eating()
+        {
+            Console.WriteLine(name + " is eating.");
+        }
 
-
-    //         Messages.Hello();
-    //         Messages.Waiting();
-    //         Messages.Bye();
-
-    //         Console.ReadKey();
-    //     }
-
-    //     static void Hello()
-    //     {
-    //         Console.WriteLine("Hello, How are you ?");
-    //     }
-
-
-    //     static void Waiting()
-    //     {
-    //         Console.WriteLine("I am waiting for something...");
-    //     }
-
-
-    //     static void Bye()
-    //     {
-    //         Console.WriteLine("Good Bye, Thank You For Visiting!");
-    //     }
-    // }
+        public void sleeping()
+        {
+            Console.WriteLine($"{name}, {age} year old is sleeping.");
+        }
+    }
 
 }
