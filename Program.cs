@@ -1,51 +1,43 @@
-﻿// LESSON 27
+﻿// LESSON 28
 
-namespace Objects
+namespace Constructors
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Object = An instance of a class
-            //          A class can be used as a blueprint for creating OOP
-            //          Objects can have field and methods i.e characteristics and actions
+            // Constructors = A special method in a class
+            //          same name as the class name
+            //          Can be used to assign arguments to field when creating an object
 
+            Car car1 = new Car("Tesla", 2020, "X");
+            Car car2 = new Car("Bugatti", 2021, "Veyron");
 
-            Human human1 = new Human();
-            human1.name = "Furqan";
-            human1.age = 17;
-
-            human1.Eating();
-            human1.sleeping();
-
-            Human human2 = new Human();
-            human2.name = "Fahm";
-            human2.age = 23;
-
-
-            human2.Eating();
-            human2.sleeping();
+            car1.Drive();
+            car2.Drive();
 
             Console.ReadKey();
         }
     }
 
-    class Human
+    class Car
     {
-        // Fields
-        public string? name;
-        public int age;
+        string? name;
+        int year;
+        string model;
 
-        // Actions or methods
-        public void Eating()
+        public Car(string name, int year, string model)
         {
-            Console.WriteLine(name + " is eating.");
+            this.name = name;
+            this.year = year;
+            this.model = model;
         }
 
-        public void sleeping()
+        public void Drive()
         {
-            Console.WriteLine($"{name}, {age} year old is sleeping.");
+            Console.WriteLine($"{name}, made in the year {year}, of the model {model} is currently driving");
         }
     }
+
 
 }
