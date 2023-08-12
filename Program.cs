@@ -1,20 +1,25 @@
-﻿// LESSON 28
+﻿// LESSON 29
 
-namespace Constructors
+namespace Static
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Constructors = A special method in a class
-            //          same name as the class name
-            //          Can be used to assign arguments to field when creating an object
+            // Static - modifier to declare a static member, which belongs to the class itself
+            //          rather than a specific object 
 
-            Car car1 = new Car("Tesla", 2020, "X");
-            Car car2 = new Car("Bugatti", 2021, "Veyron");
+            Car car1 = new Car("Bugatti");
+            Car car2 = new Car("Ferrari");
+            Car car3 = new Car("Mercedes");
 
-            car1.Drive();
-            car2.Drive();
+            Car.GetReady();
+
+            Car.Go();
+
+            Car.Finish();
+
+
 
             Console.ReadKey();
         }
@@ -22,22 +27,48 @@ namespace Constructors
 
     class Car
     {
-        string? name;
-        int year;
-        string model;
+        string? model;
+        static int numberOfCars;
 
-        public Car(string name, int year, string model)
+        static List<string> cars = new List<string>();
+
+        public Car(string model)
         {
-            this.name = name;
-            this.year = year;
             this.model = model;
+            cars.Add(model);
+            numberOfCars++;
         }
-
-        public void Drive()
+        public static void GetReady()
         {
-            Console.WriteLine($"{name}, made in the year {year}, of the model {model} is currently driving");
-        }
-    }
+            Console.WriteLine("The race is about to begin, there are " + numberOfCars + " cars currently on the track, the cars are:");
 
+            for (int i = 0; i < cars?.Count(); i++)
+            {
+                Console.WriteLine(i + 1 + ") " + cars?[i]);
+            }
+
+            Console.WriteLine();
+        }
+
+        public static void Go()
+        {
+            Console.WriteLine("3");
+            Console.WriteLine("2");
+            Console.WriteLine("1");
+            Console.WriteLine("Go Go Go!!!");
+            Console.WriteLine("Racing....");
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        public static void Finish()
+        {
+
+            Random random = new Random();
+            int winner = random.Next(0, cars.Count());
+            Console.WriteLine("The winner is " + cars[winner]);
+        }
+
+    }
 
 }
