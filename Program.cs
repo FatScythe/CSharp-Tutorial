@@ -1,74 +1,73 @@
-﻿// LESSON 29
+﻿// LESSON 30
 
-namespace Static
+namespace OverlodedConstructors
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Static - modifier to declare a static member, which belongs to the class itself
-            //          rather than a specific object 
+            // overloaded constructors - Technique to create multiple constructors,
+            //                            with different set of parameters.   
+            //                            name + parameters = signature
 
-            Car car1 = new Car("Bugatti");
-            Car car2 = new Car("Ferrari");
-            Car car3 = new Car("Mercedes");
+            Breakfast food1 = new Breakfast("Agege", "Ewagoyin", "Tea", "Orange");
+            Breakfast food2 = new Breakfast("Sliced", "FriedEgg", "Chocolate Milk");
+            Breakfast food3 = new Breakfast("Whole", "Stew");
+            Breakfast food4 = new Breakfast("Flat");
 
-            Car.GetReady();
+            food1.RecipeList();
 
-            Car.Go();
+            food2.RecipeList();
 
-            Car.Finish();
+            food3.RecipeList();
 
-
+            food4.RecipeList();
 
             Console.ReadKey();
         }
     }
 
-    class Car
+    class Breakfast
     {
-        string? model;
-        static int numberOfCars;
+        string bread;
+        string topping;
+        string beverage;
+        string fruit;
 
-        static List<string> cars = new List<string>();
-
-        public Car(string model)
+        public Breakfast(string bread)
         {
-            this.model = model;
-            cars.Add(model);
-            numberOfCars++;
+            this.bread = bread;
         }
-        public static void GetReady()
+
+        public Breakfast(string bread, string topping)
         {
-            Console.WriteLine("The race is about to begin, there are " + numberOfCars + " cars currently on the track, the cars are:");
+            this.bread = bread;
+            this.topping = topping;
 
-            for (int i = 0; i < cars?.Count(); i++)
-            {
-                Console.WriteLine(i + 1 + ") " + cars?[i]);
-            }
+        }
 
+        public Breakfast(string bread, string topping, string beverage)
+        {
+            this.bread = bread;
+            this.topping = topping;
+            this.beverage = beverage;
+        }
+
+        public Breakfast(string bread, string topping, string beverage, string fruit)
+        {
+            this.bread = bread;
+            this.topping = topping;
+            this.beverage = beverage;
+            this.fruit = fruit;
+        }
+
+        public void RecipeList()
+        {
+            if (bread != null) Console.WriteLine($"- {bread} bread");
+            if (topping != null) Console.WriteLine($"- Topping: {topping}");
+            if (beverage != null) Console.WriteLine($"- Beverage: {beverage} ");
+            if (fruit != null) Console.WriteLine($"- Fruit - {fruit}");
             Console.WriteLine();
         }
-
-        public static void Go()
-        {
-            Console.WriteLine("3");
-            Console.WriteLine("2");
-            Console.WriteLine("1");
-            Console.WriteLine("Go Go Go!!!");
-            Console.WriteLine("Racing....");
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-
-        public static void Finish()
-        {
-
-            Random random = new Random();
-            int winner = random.Next(0, cars.Count());
-            Console.WriteLine("The winner is " + cars[winner]);
-        }
-
     }
-
 }
