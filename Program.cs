@@ -1,54 +1,57 @@
-﻿// LESSON 32
+﻿// LESSON 33
 
-namespace Abstract
+namespace ArrayOfObjects
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Abstract CLasses- Usually precedes the class Keyword makes sure 
-            //                   Such instances of that class cannot be created
-            //                   It is a modifier that indicates missing components or incomplete implememntation
+            // Array_of_Objects - 
 
-            Car car = new Car();
-            Boat boat = new Boat();
-            Bicycle bicycle = new Bicycle();
-            // By preceeding the vehicle class with abstract
-            // Now i can no longer create an instance of the class
+            Car car1 = new Car("Bugatti", 380);
+            Car car2 = new Car("Ferrari", 350);
+            Car car3 = new Car("Audi", 300);
+            Car car4 = new Car("Toyota", 250);
 
-            // Vehicle vehicle = new Vehicle(); // Err type abstract or interface
+            // Car[] cars = new Car[] { car2, car3, car4 };
+            // OR
+            Car[] cars = { new Car("Bugatti", 380), new Car("Ferrari", 350), new Car("Audi", 300), new Car("Toyota", 250) }; // Anonymous objects
+            // cars[3].Go();
+            // cars[1].Go();
+
+            cars[2] = car1;
+
+            foreach (Car car in cars)
+            {
+                car.Go();
+                car.Stop();
+            }
 
 
             Console.ReadKey();
         }
     }
 
-    abstract class Vehicle
+    class Car
     {
-        public int speed = 0;
+        string name;
+        public int minSpeed = 0;
+        public int maxSpeed;
 
-        public void start()
+        public Car(string name, int maxSpeed)
         {
-            Console.WriteLine("The vehicle is moving");
+            this.name = name;
+            this.maxSpeed = maxSpeed;
         }
-    }
+        public void Go()
+        {
+            Console.WriteLine("The " + name + " is moving! at the speed of " + maxSpeed + "m/s");
+        }
 
-    class Bicycle : Vehicle
-    {
-        public int wheels = 2;
-        public int maxSpeed = 40;
-    }
-
-    class Car : Vehicle
-    {
-        public int wheels = 4;
-        public int maxSpeed = 40;
-    }
-
-    class Boat : Vehicle
-    {
-        public int wheels = 0;
-        public int maxSpeed = 40;
+        public void Stop()
+        {
+            Console.WriteLine("The " + name + " is moving! at the speed of " + minSpeed + "m/s");
+        }
     }
 
 }
