@@ -1,73 +1,53 @@
-﻿// LESSON 30
+﻿// LESSON 31
 
-namespace OverlodedConstructors
+namespace Inheritance
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // overloaded constructors - Technique to create multiple constructors,
-            //                            with different set of parameters.   
-            //                            name + parameters = signature
+            // Inheritance - 1 or more child classes receiving fields, methods wtc from a common parent
 
-            Breakfast food1 = new Breakfast("Agege", "Ewagoyin", "Tea", "Orange");
-            Breakfast food2 = new Breakfast("Sliced", "FriedEgg", "Chocolate Milk");
-            Breakfast food3 = new Breakfast("Whole", "Stew");
-            Breakfast food4 = new Breakfast("Flat");
+            Car car = new Car();
+            Boat boat = new Boat();
+            Bicycle bicycle = new Bicycle();
 
-            food1.RecipeList();
+            // now all this instances of the child classes have access to the fields and methos of the vehicle class
 
-            food2.RecipeList();
-
-            food3.RecipeList();
-
-            food4.RecipeList();
+            Console.WriteLine(car.speed);
+            boat.start();
+            // While also having access to their own methods and fields
+            Console.WriteLine(bicycle.wheels);
+            Console.WriteLine(bicycle.speed);
+            bicycle.start();
 
             Console.ReadKey();
         }
     }
 
-    class Breakfast
+    class Vehicle
     {
-        string bread;
-        string topping;
-        string beverage;
-        string fruit;
+        public int speed = 0;
 
-        public Breakfast(string bread)
+        public void start()
         {
-            this.bread = bread;
-        }
-
-        public Breakfast(string bread, string topping)
-        {
-            this.bread = bread;
-            this.topping = topping;
-
-        }
-
-        public Breakfast(string bread, string topping, string beverage)
-        {
-            this.bread = bread;
-            this.topping = topping;
-            this.beverage = beverage;
-        }
-
-        public Breakfast(string bread, string topping, string beverage, string fruit)
-        {
-            this.bread = bread;
-            this.topping = topping;
-            this.beverage = beverage;
-            this.fruit = fruit;
-        }
-
-        public void RecipeList()
-        {
-            if (bread != null) Console.WriteLine($"- {bread} bread");
-            if (topping != null) Console.WriteLine($"- Topping: {topping}");
-            if (beverage != null) Console.WriteLine($"- Beverage: {beverage} ");
-            if (fruit != null) Console.WriteLine($"- Fruit - {fruit}");
-            Console.WriteLine();
+            Console.WriteLine("The vehicle is moving");
         }
     }
+
+    class Bicycle : Vehicle
+    {
+        public int wheels = 2;
+    }
+
+    class Car : Vehicle
+    {
+        public int wheels = 4;
+    }
+
+    class Boat : Vehicle
+    {
+        public int wheels = 0;
+    }
+
 }
