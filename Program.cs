@@ -1,31 +1,29 @@
-﻿// LESSON 31
+﻿// LESSON 32
 
-namespace Inheritance
+namespace Abstract
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Inheritance - 1 or more child classes receiving fields, methods wtc from a common parent
+            // Abstract CLasses- Usually precedes the class Keyword makes sure 
+            //                   Such instances of that class cannot be created
+            //                   It is a modifier that indicates missing components or incomplete implememntation
 
             Car car = new Car();
             Boat boat = new Boat();
             Bicycle bicycle = new Bicycle();
+            // By preceeding the vehicle class with abstract
+            // Now i can no longer create an instance of the class
 
-            // now all this instances of the child classes have access to the fields and methos of the vehicle class
+            // Vehicle vehicle = new Vehicle(); // Err type abstract or interface
 
-            Console.WriteLine(car.speed);
-            boat.start();
-            // While also having access to their own methods and fields
-            Console.WriteLine(bicycle.wheels);
-            Console.WriteLine(bicycle.speed);
-            bicycle.start();
 
             Console.ReadKey();
         }
     }
 
-    class Vehicle
+    abstract class Vehicle
     {
         public int speed = 0;
 
@@ -38,16 +36,19 @@ namespace Inheritance
     class Bicycle : Vehicle
     {
         public int wheels = 2;
+        public int maxSpeed = 40;
     }
 
     class Car : Vehicle
     {
         public int wheels = 4;
+        public int maxSpeed = 40;
     }
 
     class Boat : Vehicle
     {
         public int wheels = 0;
+        public int maxSpeed = 40;
     }
 
 }
