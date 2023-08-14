@@ -1,4 +1,4 @@
-﻿// LESSON 33
+﻿// LESSON 34
 
 namespace ArrayOfObjects
 {
@@ -6,52 +6,45 @@ namespace ArrayOfObjects
     {
         static void Main(string[] args)
         {
-            // Array_of_Objects - 
+            Car car1 = new Car("Bugatti", "Blue");
 
-            Car car1 = new Car("Bugatti", 380);
-            Car car2 = new Car("Ferrari", 350);
-            Car car3 = new Car("Audi", 300);
-            Car car4 = new Car("Toyota", 250);
+            Car car2 = CopyCar(car1);
 
-            // Car[] cars = new Car[] { car2, car3, car4 };
-            // OR
-            Car[] cars = { new Car("Bugatti", 380), new Car("Ferrari", 350), new Car("Audi", 300), new Car("Toyota", 250) }; // Anonymous objects
-            // cars[3].Go();
-            // cars[1].Go();
+            ChangeCarColor(car1, "red");
 
-            cars[2] = car1;
-
-            foreach (Car car in cars)
-            {
-                car.Go();
-                car.Stop();
-            }
+            Console.WriteLine(car1.model);
+            Console.WriteLine(car2.color);
+            Console.WriteLine(car1.color);
 
 
             Console.ReadKey();
+        }
+
+        static void ChangeCarColor(Car car, string color)
+        {
+            car.color = color;
+        }
+
+        static Car CopyCar(Car car)
+        {
+            return new Car(car.model, car.color);
         }
     }
 
     class Car
     {
-        string name;
-        public int minSpeed = 0;
-        public int maxSpeed;
+        public string? model;
+        public string? color;
 
-        public Car(string name, int maxSpeed)
+        public Car(string model, string color)
         {
-            this.name = name;
-            this.maxSpeed = maxSpeed;
-        }
-        public void Go()
-        {
-            Console.WriteLine("The " + name + " is moving! at the speed of " + maxSpeed + "m/s");
-        }
-
-        public void Stop()
-        {
-            Console.WriteLine("The " + name + " is moving! at the speed of " + minSpeed + "m/s");
+            this.model = model;
+            this.color = color;
         }
     }
+
+
+
+
 
 }
