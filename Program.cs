@@ -1,6 +1,6 @@
-﻿// LESSON 34
+﻿// LESSON 35
 
-namespace ArrayOfObjects
+namespace ObjectasArguments
 {
     class Program
     {
