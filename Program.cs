@@ -1,57 +1,42 @@
-﻿// LESSON 35
+﻿// LESSON 36
 
-namespace MethodOverriding
+namespace ToString
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //             There are 3 ways to overide a Method - using the overide and virtual keyword (Modifiers)
-            //             cat.Speak();
-            //             - using the new keyword (Modifiers) this the best the parent class don't need modifiers
-            //             dog.Speak();
-            //             - or using the abstract keyword
-            //             - basically the parent class as to be abstract and the method as will not have a body +
-            //             the children method must have the override keyword, Honestly the new keyword is better
-            //             But by default it seem the version of .NET i have overrides it by default with a little warning though
+            // ToString method = return a string representation of an object
+            Car car = new Car("Tesla", "Model X", 2020);
 
-            Dog dog = new Dog();
-            Cat cat = new Cat();
+            // To see the representation in string format: 
+            Console.WriteLine(car.ToString());
 
-            dog.Speak();
-            cat.Speak();
+            // OR
+
+            Console.WriteLine(car);
+
+            Console.ReadKey();
         }
 
 
     }
-    /*abstract*/
-    class Animal
+    class Car
     {
-        virtual public void Speak()
+        string name;
+        string model;
+
+        int year;
+
+        public Car(string name, string model, int year)
         {
-            Console.WriteLine("The animal *brrr*");
+            this.name = name;
+            this.model = model;
+            this.year = year;
+        }
+        public override string ToString()
+        {
+            return "This is a " + name + " car, model: " + model + " , production-year: " + year;
         }
     }
-
-    class Dog : Animal
-    {
-        new public void Speak()
-        {
-            Console.WriteLine("The Dog goes *woof woof*");
-
-        }
-    }
-
-    class Cat : Animal
-    {
-        public override void Speak()
-        {
-            Console.WriteLine("The Cat goes *meow meow*");
-        }
-    }
-
-
-
-
-
 }
