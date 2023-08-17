@@ -1,42 +1,64 @@
-﻿// LESSON 36
+﻿// LESSON 37
 
-namespace ToString
+namespace Polymorphism
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // ToString method = return a string representation of an object
-            Car car = new Car("Tesla", "Model X", 2020);
+            // Polymorphism = Have many forms
+            //              - Object can be identified by more than one type
+            //                 E.g - A car, a boat and a bicycle are ALL VEHICLES
 
-            // To see the representation in string format: 
-            Console.WriteLine(car.ToString());
+            Car car = new Car();
+            Boat boat = new Boat();
+            Bicycle bike = new Bicycle();
 
-            // OR
+            Vehicle[] vehicles = { car, boat, bike };
+            // We can put them in array of Vehicle data types because they are children of vehicles
 
-            Console.WriteLine(car);
+            foreach (Vehicle vehicle in vehicles)
+            {
+                vehicle.Go();
+            }
+
 
             Console.ReadKey();
         }
+    }
 
+    class Vehicle
+    {
+        public virtual void Go()
+        {
+
+        }
 
     }
-    class Car
+
+    class Car : Vehicle
     {
-        string name;
-        string model;
-
-        int year;
-
-        public Car(string name, string model, int year)
+        public override void Go()
         {
-            this.name = name;
-            this.model = model;
-            this.year = year;
+            Console.WriteLine("The car has started moving");
         }
-        public override string ToString()
+    }
+
+    class Boat : Vehicle
+    {
+
+        public override void Go()
         {
-            return "This is a " + name + " car, model: " + model + " , production-year: " + year;
+            Console.WriteLine("The boat has started moving");
+        }
+    }
+
+    class Bicycle : Vehicle
+    {
+
+        public override void Go()
+        {
+            Console.WriteLine("The bicycle has started moving");
         }
     }
 }
