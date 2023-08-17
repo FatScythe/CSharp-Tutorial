@@ -15,6 +15,8 @@ namespace MethodOverriding
             //             the children method must have the override keyword, Honestly the new keyword is better
             //             But by default it seem the version of .NET i have overrides it by default with a little warning though
 
+            //             NB: the new keyword cannot be used in polymorphism
+
             Dog dog = new Dog();
             Cat cat = new Cat();
 
