@@ -1,6 +1,6 @@
-﻿// LESSON 39
+﻿// LESSON 40
 
-namespace List
+namespace ListOfObjects
 {
     class Program
     {
@@ -9,35 +9,38 @@ namespace List
             // List = data structure that rep. a list of objects that can be accesed by index.
             //        similar to an array, but can dynamically increase or decrease in size
 
-            List<int> list = new List<int>();
-            List<string> foods = new List<string>();
+            List<Player> players = new List<Player>();
 
-            // To add to the list
-            foods.Add("Bread");
-            foods.Add("Rice");
-            foods.Add("Amala");
-            foods.Add("Beans");
-            foods.Add("Spaghetti");
-            foods.Add("Bread");
+            Player player1 = new Player("Korede");
+            Player player2 = new Player("Gbenga");
+            Player player3 = new Player("Okiki");
 
-            foods[2] = "Semo";
-            Console.WriteLine(foods[2]);
-            foods.Contains("Bread"); // Returns Boolean
-            foods.LastIndexOf("Bread"); //  Get last index of item
-            // foods.Clear(); // Clears the List
-            foods.Count(); // Gets the length of the list
-            foods.Remove("Beans"); //  Removes element from the list
-            string[] items = foods.ToArray(); // Converts list to array
-            // Console.WriteLine(items.GetType());
+            players.Add(player1);
+            players.Add(player2);
+            players.Add(player3);
+            players.Add(new Player("Ola"));// or you can add them as anonymous object
 
-            foreach (string food in foods)
+            foreach (Player player in players)
             {
-                // Console.WriteLine(food);
+                Console.WriteLine(player);
             }
             Console.ReadKey();
 
         }
 
+    }
+
+    class Player
+    {
+        public string username;
+        public Player(string username)
+        {
+            this.username = username;
+        }
+        public override string ToString()
+        {
+            return username;
+        }
     }
 
 }
