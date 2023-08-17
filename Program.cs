@@ -1,59 +1,72 @@
-﻿// LESSON 35
+﻿// LESSON 38
 
-namespace MethodOverriding
+namespace Interface
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //             There are 3 ways to overide a Method - using the overide and virtual keyword (Modifiers)
-            //             cat.Speak();
-            //             - using the new keyword (Modifiers) this the best the parent class don't need modifiers
-            //             dog.Speak();
-            //             - or using the abstract keyword
-            //             - basically the parent class as to be abstract and the method as will not have a body +
-            //             the children method must have the override keyword, Honestly the new keyword is better
-            //             But by default it seem the version of .NET i have overrides it by default with a little warning though
+            // Interface = defines a contract that all classes inheriting from should follow
+            //             It declares what a class should have
+            //             Inheriting class defines how it should do it
+            //             Benefits = security + multiple inheritance + "Plug and Play"
 
-            //             NB: the new keyword cannot be used in polymorphism
+            Rabbit rabbit = new Rabbit();
+            Hawk hawk = new Hawk();
+            Fish fish = new Fish();
 
-            Dog dog = new Dog();
-            Cat cat = new Cat();
+            // Implemented Prey 
+            rabbit.flee("Wolves");
+            // Implemented Predator
+            hawk.Hunt("chicks");
+            // Implemented Prey and Predator
+            fish.flee("Shark");
+            fish.Hunt("Tilapia");
 
-            dog.Speak();
-            cat.Speak();
         }
 
-
     }
-    /*abstract*/
-    class Animal
+
+    interface IPrey
     {
-        virtual public void Speak()
-        {
-            Console.WriteLine("The animal *brrr*");
-        }
+        void flee(string predator);
     }
 
-    class Dog : Animal
+    interface IPredator
     {
-        new public void Speak()
-        {
-            Console.WriteLine("The Dog goes *woof woof*");
-
-        }
+        string Hunt(string prey);
     }
 
-    class Cat : Animal
+    class Rabbit : IPrey
     {
-        public override void Speak()
+        public void flee(string predator)
         {
-            Console.WriteLine("The Cat goes *meow meow*");
+            Console.WriteLine("The Rabbit flee from the" + predator);
         }
     }
 
+    class Hawk : IPredator
+    {
+        public string Hunt(string prey)
+        {
+            Console.WriteLine("The Hawk hunts the " + prey);
 
+            return prey;
+        }
+    }
 
+    class Fish : IPrey, IPredator
+    {
+        public void flee(string predator)
+        {
+            Console.WriteLine("The Fish flee from the " + predator);
+        }
+        public string Hunt(string prey)
+        {
+            Console.WriteLine("The Shark hunts the " + prey);
 
+            return prey;
+        }
+    }
 
 }
