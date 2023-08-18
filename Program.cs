@@ -1,46 +1,56 @@
-﻿// LESSON 40
+﻿// LESSON 42
 
-namespace ListOfObjects
+/* 
+git add . 
+git commit -m "Auto Implemented Properties" 
+git push --set-upstream origin 42-Auto-ImplementedProperties
+*/
+
+namespace AutoGetters_Setters
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // List = data structure that rep. a list of objects that can be accesed by index.
-            //        similar to an array, but can dynamically increase or decrease in size
 
-            List<Player> players = new List<Player>();
+            Car car = new Car("Mercedes", 299303972);
 
-            Player player1 = new Player("Korede");
-            Player player2 = new Player("Gbenga");
-            Player player3 = new Player("Okiki");
-
-            players.Add(player1);
-            players.Add(player2);
-            players.Add(player3);
-            players.Add(new Player("Ola"));// or you can add them as anonymous object
-
-            foreach (Player player in players)
-            {
-                Console.WriteLine(player);
-            }
+            Console.WriteLine(car.Model);
+            Console.WriteLine(car.Speed);
             Console.ReadKey();
-
         }
-
     }
 
-    class Player
+    class Car
     {
-        public string username;
-        public Player(string username)
+        private int speed;
+        // This a shorter way of writing getters and setters when there are no additional function/ conditions
+        // it removes the need for defining a field
+        public string Model { get; set; }
+
+        public Car(string model, int speed)
         {
-            this.username = username;
+            // this.Speed = speed;
+            // this.Model = model;
+            // OR Since the getter and setters are hoisted to the top
+            Speed = speed;
+            Model = model;
         }
-        public override string ToString()
+
+        public int Speed
         {
-            return username;
+            get { return speed; }
+            set
+            {
+                if (value > 500)
+                {
+                    speed = 500;
+                }
+                else
+                {
+                    speed = value;
+                }
+            }
         }
     }
-
 }
