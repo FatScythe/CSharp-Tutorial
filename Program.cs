@@ -1,10 +1,5 @@
 ﻿// LESSON 41
 
-/* 
-git add . 
-git commit -m "Getters and Setters" 
-git push --set-upstream origin 41-Getters-Setters
-*/
 namespace GetSet
 {
     class Program
