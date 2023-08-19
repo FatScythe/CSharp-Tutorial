@@ -1,11 +1,5 @@
 ﻿// LESSON 42
 
-/* 
-git add . 
-git commit -m "Auto Implemented Properties" 
-git push --set-upstream origin 42-Auto-ImplementedProperties
-*/
-
 namespace AutoGetters_Setters
 {
     class Program
