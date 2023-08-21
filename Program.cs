@@ -1,60 +1,95 @@
-﻿// LESSON 42
+﻿// LESSON 43
 
-namespace Enum
+namespace Generics
 {
     class Program
     {
         static void Main(string[] args)
         {
+            // Generics = "not specific to a particular data type"
+            //             add <T> to classes method and field;
+            //             allows for code reusability for different data types
 
-            // enum = special 'class' that contains a set of named integer constant
-            //        use enum when you have values that will not change
-            //        to get interger value convert to int
-            //        to get string value convert to to string
+            // With methods
+            string[] StringValues = new string[4] { "1", "2", "3", "4" };
+            int[] IntergerValues = new int[] { 1, 2, 3, 4 };
+            double[] DoubleValues = { 1.2, 2.3, 3.4, 4.5, 5.6, 7.5 };
 
+            // ListValues(StringValues);
+            // ListValues(IntergerValues);
+            // ListValues(DoubleValues);
 
-            // To store the name in a variable
-            string name = Planets.Earth.ToString();
-            int number = (int)Planets.Earth;
-            Console.WriteLine("Planet " + name + "is number " + number);
+            // With classes
+            Cart<Product> cart = new Cart<Product>();
 
-            double Volume = GetVolume(PlanetRadius.Jupiter);
-            Console.WriteLine("The volume of jupiter is " + Volume + "km^3");
+            cart.addToCart(new Product("Product 1"), new Product("Bag"), new Product("Gele"));
+
+            foreach (Product item in Cart<Product>.CartItems)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
             Console.ReadKey();
         }
 
-        static double GetVolume(PlanetRadius radius)
+        // WIth methods
+        static void ListValues<T>(T[] values)
         {
-            double volume = 4 / 3 * Math.PI * Math.Pow((int)radius, 3);
-            return volume;
+            foreach (T item in values)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        static void Something<T, U>()
+        {
+            // Generics can be more than one
+        }
+
+
+    }
+
+    // With Classes
+
+    class Cart<T>
+    {
+        public static List<T> CartItems = new List<T>();
+
+        public void addToCart(params T[] products)
+        {
+            foreach (T item in products)
+            {
+                CartItems.Add(item);
+            }
+
         }
     }
 
-    enum Planets
+    class Product
     {
-        // Withut assigning a value to the names, mercury would automatically be zero
-        Mercury = 1,
-        Venus = 2,
-        Earth = 3,
-        Mars = 4,
-        Saturn = 5,
-        Neptune = 6,
-        Jupiter = 7,
-        Uranus = 8,
-        Pluto = 9
+        string name;
+        public Product(string productname)
+        {
+            Name = productname;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"Product name: {name}";
+        }
     }
 
-    enum PlanetRadius
-    {
 
-        Mercury = 2334,
-        Venus = 2878,
-        Earth = 3671,
-        Mars = 5902,
-        Saturn = 5232,
-        Neptune = 6223,
-        Jupiter = 95032,
-        Uranus = 8823,
-        Pluto = 1232
-    }
 }
