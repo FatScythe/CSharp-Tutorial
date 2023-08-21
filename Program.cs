@@ -1,70 +1,60 @@
-﻿// LESSON 41
+﻿// LESSON 42
 
-namespace GetSet
+namespace Enum
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            Car car = new Car("Tesla", 250);
+            // enum = special 'class' that contains a set of named integer constant
+            //        use enum when you have values that will not change
+            //        to get interger value convert to int
+            //        to get string value convert to to string
 
-            // GettersSetters = at times you might want to prevent access to certain data
-            // e.g in this case I dont want the speed to be above 500
-            // I could use the 'Private' keyword to prevent this but i would no longer have access to the data
-            // Getter & Setter adds security to fields by encapsulation
-            // It also combine the aspect of fields and methods
-            // get accessor = used to return the property value
-            // set accessor = used to assign a new value
-            // value keyword = defines the value gotten from the constructor
 
-            // I should not be able to this
-            // car.speed = 100000000;
-            // I could make the the variable private 
-            // But if i need to change it i would have no way to
-            // Without creating a new instance of the class
-            car.Speed = 200000000;
-            // WIth Setter i can now set condition to prevent this
-            // Should i need to read what speed is, as it is private
-            // I can access the getters Speed
-            Console.WriteLine(car.Speed);
-            // Console.WriteLine(car);
+            // To store the name in a variable
+            string name = Planets.Earth.ToString();
+            int number = (int)Planets.Earth;
+            Console.WriteLine("Planet " + name + "is number " + number);
 
+            double Volume = GetVolume(PlanetRadius.Jupiter);
+            Console.WriteLine("The volume of jupiter is " + Volume + "km^3");
             Console.ReadKey();
+        }
+
+        static double GetVolume(PlanetRadius radius)
+        {
+            double volume = 4 / 3 * Math.PI * Math.Pow((int)radius, 3);
+            return volume;
         }
     }
 
-    class Car
+    enum Planets
     {
-        private string name;
-        private int speed;
+        // Withut assigning a value to the names, mercury would automatically be zero
+        Mercury = 1,
+        Venus = 2,
+        Earth = 3,
+        Mars = 4,
+        Saturn = 5,
+        Neptune = 6,
+        Jupiter = 7,
+        Uranus = 8,
+        Pluto = 9
+    }
 
-        public Car(string name, int speed)
-        {
-            this.name = name;
-            Speed = speed;
-        }
+    enum PlanetRadius
+    {
 
-        public int Speed
-        {
-            get { return speed; } // reed
-            set
-            {
-                if (value > 500)
-                {
-                    speed = 200;
-                }
-                else
-                {
-                    speed = value;
-                }
-            } // write
-        }
-
-        public override string ToString()
-        {
-            return $"This ia a {name}, with a speed of {speed}";
-        }
-
+        Mercury = 2334,
+        Venus = 2878,
+        Earth = 3671,
+        Mars = 5902,
+        Saturn = 5232,
+        Neptune = 6223,
+        Jupiter = 95032,
+        Uranus = 8823,
+        Pluto = 1232
     }
 }
