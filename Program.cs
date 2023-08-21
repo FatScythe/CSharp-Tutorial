@@ -1,95 +1,56 @@
-﻿// LESSON 43
+﻿// LESSON 44
+// using System.Threading; // This is not needed, at least not on this version of dotnet
 
-namespace Generics
+namespace MultiThreading
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Generics = "not specific to a particular data type"
-            //             add <T> to classes method and field;
-            //             allows for code reusability for different data types
+            // Thread = an execution path of a program
+            //          We can use multiple threads to perform,
+            //          different tasks of our program at the same tie
+            //          Current thread running is the main thread
 
-            // With methods
-            string[] StringValues = new string[4] { "1", "2", "3", "4" };
-            int[] IntergerValues = new int[] { 1, 2, 3, 4 };
-            double[] DoubleValues = { 1.2, 2.3, 3.4, 4.5, 5.6, 7.5 };
+            Thread mainThread = Thread.CurrentThread;
+            // Change the name of the thread
+            mainThread.Name = "Main Thread";
 
-            // ListValues(StringValues);
-            // ListValues(IntergerValues);
-            // ListValues(DoubleValues);
 
-            // With classes
-            Cart<Product> cart = new Cart<Product>();
+            Thread thread1 = new Thread(CountDown);
+            // Thread thread2 = new Thread(CountUp);
+            // if you need to pass a value in the fn, we use a lambda expression/
+            // callback fn
+            Thread thread2 = new Thread(() => CountUp("Timer #2"));
 
-            cart.addToCart(new Product("Product 1"), new Product("Bag"), new Product("Gele"));
 
-            foreach (Product item in Cart<Product>.CartItems)
-            {
-                Console.WriteLine(item.ToString());
-            }
 
+            thread1.Start(); // To start a thread
+            thread2.Start();
+
+            Console.WriteLine(mainThread.Name + " is completed");
             Console.ReadKey();
         }
 
-        // WIth methods
-        static void ListValues<T>(T[] values)
+        static void CountDown()
         {
-            foreach (T item in values)
+            for (int i = 10; i >= 0; i--)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Timer #1: " + i);
+                Thread.Sleep(1000); // To make a thread delay, in ms
             }
+            Console.WriteLine("Timer #1 is completed");
         }
 
-        static void Something<T, U>()
+        static void CountUp(string name)
         {
-            // Generics can be more than one
-        }
-
-
-    }
-
-    // With Classes
-
-    class Cart<T>
-    {
-        public static List<T> CartItems = new List<T>();
-
-        public void addToCart(params T[] products)
-        {
-            foreach (T item in products)
+            for (int i = 0; i <= 10; i++)
             {
-                CartItems.Add(item);
+                Console.WriteLine(name + ": " + i);
+                Thread.Sleep(1000);
             }
-
+            Console.WriteLine(name + " #2 is completed");
         }
     }
-
-    class Product
-    {
-        string name;
-        public Product(string productname)
-        {
-            Name = productname;
-        }
-
-        public string Name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-
-        public override string ToString()
-        {
-            return $"Product name: {name}";
-        }
-    }
-
 
 }
