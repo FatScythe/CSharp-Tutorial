@@ -22,6 +22,7 @@
                 min = 0;
                 max = 100;
                 number = random.Next(min, max + 1);
+                response = "";
                 Console.WriteLine("Guess a number between " + min + " and " + max + " ;");
                 while (guess != number)
                 {
