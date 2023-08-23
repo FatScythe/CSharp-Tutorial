@@ -1,3 +1,11 @@
 /bin
 /obj
 C#.csproj
+
+/console-apps/Guessing-game/obj
+/console-apps/Guessing-game/bin
+Guessing-game.csproj
+
+/console-apps/Rock-Paper-Scissors/obj
+/console-apps/Rock-Paper-Scissors/bin
+Rock-Paper-Scissors.csproj
