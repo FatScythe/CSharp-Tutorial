@@ -26,22 +26,30 @@
                 while (guess != number)
                 {
                     Console.Write("Your guess: ");
-                    guess = Convert.ToInt32(Console.ReadLine());
-
-                    if (guess > number)
+                    try
                     {
-                        Console.WriteLine("Go lower!");
+                        guess = Convert.ToInt32(Console.ReadLine());
+                        if (guess > number)
+                        {
+                            Console.WriteLine("Go lower!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Go Higher!");
+                        }
+                        guesses++;
                     }
-                    else
+                    catch (Exception)
                     {
-                        Console.WriteLine("Go Higher!");
+                        Console.WriteLine("Guess a number between " + min + " and " + max + " ;");
+                        guess = max + 1;
                     }
-                    guesses++;
                 }
+
                 BlockText("YOU WON!!!");
                 Console.WriteLine("The number: " + number);
                 Console.WriteLine("Your guess: " + guess);
-                Console.WriteLine("No. of try's: " + guesses);
+                Console.WriteLine("No. of trials: " + guesses);
                 Console.WriteLine();
 
                 Console.WriteLine("Would you like to play again? (y/n)");
@@ -55,11 +63,7 @@
             } while (play);
 
             BlockText("THANK YOU FOR PLAYING!!!");
-
-
-            Console.ReadKey();
         }
-
         static void BlockText(string text)
         {
             Console.WriteLine("-----------------------");
