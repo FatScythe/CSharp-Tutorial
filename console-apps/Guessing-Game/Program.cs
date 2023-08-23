@@ -42,7 +42,6 @@
                     catch (Exception)
                     {
                         Console.WriteLine("Guess a number between " + min + " and " + max + " ;");
-                        guess = max + 1;
                     }
                 }
 
